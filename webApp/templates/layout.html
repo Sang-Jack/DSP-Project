@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+    <title>Let's Stay Fit</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/magnific-popup.css' %}">
+    <link rel="stylesheet"
+          href="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.css"/>
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{% static 'app/css/templatemo-style.css' %}">
+
+</head>
+
+<body>
+
+<!-- PRE LOADER -->
+<section class="preloader">
+    <div class="spinner">
+
+        <span class="spinner-rotate"></span>
+
+    </div>
+</section>
+
+
+<!-- MENU -->
+<section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+            </button>
+
+            <!-- lOGO TEXT HERE -->
+            <a href="../../layout.html" class="navbar-brand">Let's Stay Fit</a>
+        </div>
+
+        <!-- MENU LINKS -->
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-nav-first">
+                <li><a href="#home" class="smoothScroll">Home</a></li>
+                <li><a href="#about" class="smoothScroll">About</a></li>
+                <li><a href="#cal" class="smoothScroll">BMI &amp; BMR</a></li>
+                <!--<li><a href="#menu" class="smoothScroll">Menu</a></li>-->
+                <!-- <li><a href="#contact" class="smoothScroll">Contact</a></li> -->
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">    
+                <!-- CHECK USER LOGIN-->
+                {% if user.is_authenticated %}
+                    <span style="color: yellowgreen">Welcome, {{ user.username }} &nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'profile' %}" class="section-btn">Profile</a></span>
+                    <a href="{% url 'logout' %}" class="section-btn">Logout</a></span>                    
+
+                {% else %}
+                    <!--<span style="color: yellowgreen">Welcome, Guest </span>-->
+                    <a href="{% url 'register' %}" class="section-btn">Sign Up</a>
+                    <a href="{% url 'login' %}" class="section-btn">Login</a>                 
+                {% endif %}
+
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- HOME -->
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+    <div class="row">
+
+        <div class="owl-carousel owl-theme">
+            <div class="item item-first">
+                <div class="caption">
+                    <div class="container">
+                        <div class="col-md-8 col-sm-12">
+                            <h3>Healthy &amp; Delicious</h3>
+                            <h1>Our mission is to provide an unforgettable experience</h1>
+                            <a href="#about" class="section-btn btn btn-default smoothScroll">About Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item item-second">
+                <div class="caption">
+                    <div class="container">
+                        <div class="col-md-8 col-sm-12">
+                            <h3>Your Perfect Balance</h3>
+                            <h1>The best way to have a view of your current health</h1>
+                            <a href="../../layout.html#cal"
+                               class="section-btn btn btn-default smoothScroll">Have a view of your current health</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item item-third">
+                <div class="caption">
+                    <div class="container">
+                        <div class="col-md-8 col-sm-12">
+                            <h1>Make a eating suggestion for you to improve health</h1>                                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-12">
+                <div class="about-info">
+                    <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
+                        <h4>Read our story</h4>
+                        <h2>We've been Making The Delicious &amp; Healthy Foods Since 1999</h2>
+                    </div>
+
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <p>A variety of reduced-calorie daily menus are provided to help make it easier for you to
+                            eat
+                            right and lose weight. The sample menus include ideas for traditional meals as well as
+                            ethnic and vegetarian meals.</p>
+                        <p>By identifying the BMI weight categories, people can choose the right and healthy food to
+                            be
+                            taken.
+                            Encouraging people to choose a variety of foods that specify the nutritional
+                            requirements
+                            every day will help ensure that
+                            they can get a balance diet as well as obtain the wide range of nutrients that their
+                            bodies
+                            need to remain healthy, function properly and have a healthy body.</p>
+                        <p><a href="#footer" style="color:red">Sign Up and Calculate your BMI right now!</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
+                    <img src="{% static 'app/images/about-image.jpg' %}" class="img-responsive" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- BMI BMR CALCULATOR -->
+<section id="cal" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12" style="margin-left: 34%">
+                <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                    <h2 style="color: red">BMI & BMR CALCULATOR</h2>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <!-- WITH THE ANONYMOUS USER, LET THEY FILL DATA THEN CALCULATE THE BMI/BMR-->
+                <form method="" style="width: 308%" onsubmit="return false;">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="panel panel-info" style="width: 110%">
+                                <div class="panel-body" id="ThisDivWillHide">
+                                    <div class="form-group row">
+                                        <label class="col-md-4 col-form-label text-md-right">Birthday:</label>
+                                        <div class="col-md-8" style="width: auto">
+                                            <input type="date" id="birthday">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 col-form-label text-md-right">Gender:</label>
+                                        <div class="col-md-8" style="width: auto">
+                                            <select id="gender" width="165" name="sex">
+                                                <option value="1">Male</option>
+                                                <option value="2">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 col-form-label text-md-right">Height (cm):</label>
+                                        <div class="col-md-8" style="width: auto">
+                                            <input type="text" id="height">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 col-form-label text-md-right">Weight (kg):</label>
+                                        <div class="col-md-8" style="width: auto">
+                                            <input type="text" id="weight">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 col-form-label text-md-right">Activity Level:</label>
+                                        <div class="col-md-8" style="width: auto">
+                                            <select id="activity_level" name="act_lv">
+                                                <option value="1">Sedentary: little or no exercise</option>
+                                                <option value="2">Exercise 1-3 times/week</option>
+                                                <option value="3">Exercise 4-5 times/week</option>
+                                                <option value="4">Daily exercise or intense exercise 3-4 times/week
+                                                </option>
+                                                <option value="5">Intense exercise 6-7 times/week</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Show BMI/BMR -->
+                                <div class="panel-body" id="ThisDivWillShow" style="display: none">
+                                    <div class="form-group row">
+                                        <label class="col-md-4 col-form-label text-md-right">BMI:</label>
+                                        <div class="col-md-8">
+                                            <div id="bmi_result"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 col-form-label text-md-right">BMR:</label>
+                                        <div class="col-md-8">
+                                            <div id="bmr_result"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4 col-form-label text-md-right">Suggestion:</label>
+                                        <div class="col-md-8">
+                                            <div id="target_result"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- -->
+                                <div class="panel-footer">
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <input style="height: 35px" class="section-btn" type="submit"
+                                                   value="Calculate"
+                                                   onclick="ShowAndHideDiv(); calculateBMI(); calculateBMR()"
+                                                   id="ThisElementWillChangeValue"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- MENU-->
+<section id="menu" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                    <h2>Our Menus</h2>
+                    <h4>Balance &amp; Fresh</h4>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <!-- MENU THUMB -->
+                <div class="menu-thumb">
+                    <a href="{% static 'app/images/menu-image1.jpg' %}" class="image-popup"
+                       title="American Breakfast">
+                        <img src="{% static 'app/images/menu-image1.jpg' %}" class="img-responsive" alt="">
+
+                        <div class="menu-info">
+                            <div class="menu-item">
+                                <h3>Monday</h3>
+                                <p>Tomato / Eggs / Sausage</p>
+                            </div>
+                            <div class="menu-price">
+                                <span>$25</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <!-- MENU THUMB -->
+                <div class="menu-thumb">
+                    <a href="{% static 'app/images/menu-image2.jpg' %}" class="image-popup" title="Self-made Salad">
+                        <img src="{% static 'app/images/menu-image2.jpg' %}" class="img-responsive" alt="">
+
+                        <div class="menu-info">
+                            <div class="menu-item">
+                                <h3>Tuesday</h3>
+                                <p>Green / Fruits / Healthy</p>
+                            </div>
+                            <div class="menu-price">
+                                <span>$18</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <!-- MENU THUMB -->
+                <div class="menu-thumb">
+                    <a href="{% static 'app/images/menu-image3.jpg' %}" class="image-popup" title="Chinese Noodle">
+                        <img src="{% static 'app/images/menu-image3.jpg' %}" class="img-responsive" alt="">
+
+                        <div class="menu-info">
+                            <div class="menu-item">
+                                <h3>Wednessday</h3>
+                                <p>Pepper / Chicken / Vegetables</p>
+                            </div>
+                            <div class="menu-price">
+                                <span>$34</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <!-- MENU THUMB -->
+                <div class="menu-thumb">
+                    <a href="{% static 'app/images/menu-image4.jpg' %}" class="image-popup" title="Rice Soup">
+                        <img src="{% static 'app/images/menu-image4.jpg' %}" class="img-responsive" alt="">
+
+                        <div class="menu-info">
+                            <div class="menu-item">
+                                <h3>Thursday</h3>
+                                <p>Green / Chicken</p>
+                            </div>
+                            <div class="menu-price">
+                                <span>$28</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <!-- MENU THUMB -->
+                <div class="menu-thumb">
+                    <a href="{% static 'app/images/menu-image5.jpg' %}" class="image-popup" title="Project title">
+                        <img src="{% static 'app/images/menu-image5.jpg' %}" class="img-responsive" alt="">
+
+                        <div class="menu-info">
+                            <div class="menu-item">
+                                <h3>Friday</h3>
+                                <p>Beef / Fried Potatoes</p>
+                            </div>
+                            <div class="menu-price">
+                                <span>$46</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <!-- MENU THUMB -->
+                <div class="menu-thumb">
+                    <a href="{% static 'app/images/menu-image6.jpg' %}" class="image-popup" title="Project title">
+                        <img src="{% static 'app/images/menu-image6.jpg' %}" class="img-responsive" alt="">
+
+                        <div class="menu-info">
+                            <div class="menu-item">
+                                <h3>Big Flat Fried</h3>
+                                <p>Pepper / Crispy</p>
+                            </div>
+                            <div class="menu-price">
+                                <span>$30</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<!-- TESTIMONIAL -->
+<section id="testimonial" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-11">
+                <div class="section-title wow fadeInUp" data-wow-delay="0s">
+                    <h2>BMI Weight Category </h2>
+                </div>
+            </div>
+
+            <div class="col-md-offset-2 col-md-8 col-sm-12">
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <p>
+                        <h2>Underweight</h2>
+                        </p>
+                        <p>Starchy vegetables, dense whole grains, proteins low in saturated fat and low-fat dairy.
+                        </p>
+                        <div class="tst-author">
+                            <h4>Example:</h4>
+                            <span>carrot, tomato, barley, rice porridge, milk, yogurt, cheese, bread, wheat flour,
+                                    noodle, rice flour</span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <p>
+                        <h2>Normal</h2>
+                        </p>
+                        <p>Fruits, vegetables, whole-grains, legumes, nuts and seeds, meat, poultry and fish</p>
+                        <div class="tst-author">
+                            <h4>Example:</h4>
+                            <span>apple, banana, grapes, bread, soya bean curd, soya bean milk, dhal, anchovy, fish
+                                    ball, crab, cuttlefish</span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <p>
+                        <h2>Overweight</h2>
+                        </p>
+                        <p>Whole grains, fresh produce, beans and nuts, fish, fruits and vegetables</p>
+                        <div class="tst-author">
+                            <h4>Example:</h4>
+                            <span>oat, barley, coconut water, peanut, almond, fish ball, grilled fish, green apple,
+                                    banana, orange, mango, carrot, papaya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="team" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                    <h2>Where can you find us</h2>
+                </div>
+            </div>
+
+            <!-- How to change your own map point
+                1. Go to Google Maps
+                2. Click on your location point
+                3. Click "Share" and choose "Embed map" tab
+                4. Copy only URL and paste it within the src="" field below
+        -->
+            <div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="0.4s">
+                <div id="google-map" style="width: 200%">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.686130956266!2d-2.549623784691901!3d51.50062701902006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487190332104bb7f%3A0x23f9502b6036c189!2sUniversity%20of%20the%20West%20of%20England%20-%20UWE%20Bristol!5e0!3m2!1svi!2s!4v1619021816468!5m2!1svi!2s"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer id="footer" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3 col-sm-8">
+                <div class="footer-info">
+                    <div class="section-title">
+                        <h2 class="wow fadeInUp" data-wow-delay="0.2s">Find us</h2>
+                    </div>
+                    <address class="wow fadeInUp" data-wow-delay="0.4s">
+                        <p>University of the West of England</p>
+                    </address>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-8">
+                <div class="footer-info">
+                    <div class="section-title">
+                        <h2 class="wow fadeInUp" data-wow-delay="0.2s">Contact</h2>
+                    </div>
+                    <address class="wow fadeInUp" data-wow-delay="0.4s">
+                        <p>Phone: xxx-xxx-xxxx</p>
+                        <p>Email: <a href="mailto:minhquan@gmail.com">sang3.ngo@live.uwe.ac.uk</a></p>
+                    </address>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-8">
+                <div class="footer-info footer-open-hour">
+                    <div class="section-title">
+                        <h2 class="wow fadeInUp" data-wow-delay="0.2s">Open Hours</h2>
+                    </div>
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div>
+                            <strong>Monday to Friday</strong>
+                            <p>7:00 AM - 9:00 PM</p>
+                        </div>
+                        <div>
+                            <strong>Saturday - Sunday</strong>
+                            <p>11:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-4">
+                <ul class="wow fadeInUp social-icon" data-wow-delay="0.4s">
+                    <li><a  class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                    <li><a  class="fa fa-twitter"></a></li>
+                    <li><a  class="fa fa-instagram"></a></li>
+                    <li><a  class="fa fa-google"></a></li>
+                </ul>
+
+                <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s">
+                    <p><br>Copyright &copy; 2022 <br>Examination 
+
+                        <br><br>Design by: Sang Ngo</p>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- SCRIPTS -->
+<script src="{% static 'app/js/jquery.js' %}"></script>
+<script src="{% static 'app/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'app/js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'app/js/wow.min.js' %}"></script>
+<script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'app/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'app/js/smoothscroll.js' %}"></script>
+<script src="{% static 'app/js/custom.js' %}"></script>
+
+
+<script>
+    //Hide div
+    function ShowAndHideDiv() {
+        var x = document.getElementById("ThisDivWillHide");
+        var y = document.getElementById("ThisDivWillShow");
+        var z = document.getElementById("ThisElementWillChangeValue");
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+            z.value = "Calculate";
+        } else {
+            x.style.display = "none";
+            y.style.display = "block";
+            z.value = "Back";
+        }
+    }
+
+    //Calculate BMI
+    function calculateBMI() {
+        var bmi_result;
+        /* Getting input from user into height variable.
+        Input is string so typecasting is necessary. */
+        let height = parseInt(document.querySelector("#height").value);
+
+        /* Getting input from user into weight variable.
+        Input is string so typecasting is necessary.*/
+        let weight = parseInt(document
+            .querySelector("#weight").value);
+        let result = document.querySelector("#bmi_result");
+
+        // Checking the user providing a proper value or not
+        if (height === "" || isNaN(height))
+            result.innerHTML = "Provide a valid Height!";
+        else if (weight === "" || isNaN(weight))
+            result.innerHTML = "Provide a valid Weight!";
+
+        // If both input is valid, calculate the bmi
+        else {
+            // Fixing upto 2 decimal places
+            let bmi = (weight / ((height * height) / 10000)).toFixed(2);
+            bmi_result = bmi;
+
+            // Dividing as per the bmi conditions
+            if (bmi < 18.6) result.innerHTML =
+                `Under Weight : <span>${bmi}</span>`;
+            else if (bmi >= 18.6 && bmi < 24.9)
+                result.innerHTML =
+                    `Normal : <span>${bmi}</span>`;
+            else result.innerHTML =
+                    `Over Weight : <span>${bmi}</span>`;
+        }
+        return bmi_result;
+    }
+
+    //Calculate BMR
+    function calculateBMR() {
+        let gender = parseInt(document.querySelector("#gender").value);
+        let height = parseInt(document.querySelector("#height").value);
+        let weight = parseInt(document.querySelector("#weight").value);
+        let actlv = parseInt(document.querySelector("#activity_level").value);
+        let result2 = document.querySelector("#bmr_result");
+        let result3 = document.querySelector("#target_result");
+
+        //Calculate age
+        let today = new Date();
+        let birthDate = new Date(document.querySelector("#birthday").value);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        let m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+
+        //Set value for activity level
+        let r;
+        switch (actlv) {
+            case 1:
+                r = 1.2;
+                break;
+            case 2:
+                r = 1.375;
+                break;
+            case 3:
+                r = 1.55;
+                break;
+            case 4:
+                r = 1.725;
+                break;
+            case 5:
+                r = 1.9;
+                break;
+        }
+
+        let tdee;
+        let bmr;
+        let bmi;
+        let tar_calories;
+        if (height === "" || isNaN(height))
+            result2.innerHTML = "Provide a valid Height!";
+        else if (weight === "" || isNaN(weight))
+            result2.innerHTML = "Provide a valid Weight!";
+        else {
+
+            //Calculate BMR
+            if (gender == 1) {
+                bmr = Math.ceil(66.5 + (13.75 * weight) + (5.003 * height) - (6.755 * age));
+            } else {
+                bmr = Math.ceil(655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age));
+            }
+            result2.innerHTML = `<span>${bmr}</span>`;
+
+            //Calculate TDEE and Target Calories(base on BMR, BMI, Activity level)
+            tdee = bmr * r;
+            bmi = calculateBMI();
+
+            if (bmi < 18.6)
+                tar_calories = tdee + 500;
+            else if (bmi >= 18.6 && bmi < 24.9)
+                tar_calories = tdee;
+            else if (bmi > 24.9)
+                tar_calories = tdee - 500;
+            tar_calories = Math.ceil(tar_calories);
+            //Print the final result(BMR and Target Calories)
+            if (tar_calories === "" || isNaN(tar_calories))
+                result3.innerHTML = "Cannot give a suggestion because an invalid/missing information!";
+            else
+                result3.innerHTML = `You should eat <span>${tar_calories}</span> calories per day`;
+        }
+    }
+</script>
+<script src="{% static 'app/js/js.cookie.js' %}"></script>
+<script>
+
+    var csrftoken = Cookies.get('csrftoken');
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }   
+    }
+
+    $sayButton.click(function () {
+        submitInput();
+    });
+
+    $input.keydown(function (event) {
+        // Submit the input when the enter button is pressed
+        if (event.keyCode == 13) {
+            submitInput();
+        }
+    });
+</script>
+<script type="text/javascript">
+    /* Chatbot setting */
+    (function(d, m){
+        var kommunicateSettings = 
+            {"appId":"10cd016cd602c426621dd70129d9eebdc","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+</script>
+
+</body>
+
+</html>

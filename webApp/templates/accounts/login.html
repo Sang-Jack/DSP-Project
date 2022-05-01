@@ -1,0 +1,59 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div style="margin-left: 35%;">
+                                <h3>Member Login</h3>
+                            </div>
+                            
+                        </div>
+                        <div class="panel-body">
+                            <!-- Login Information -->
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">{{ form.username.label_tag }}</label>
+                                <div class="col-md-8">
+                                    {{ form.username }}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">{{ form.password.label_tag }}</label>
+                                <div class="col-md-8">
+                                    {{ form.password }}
+                                </div>
+                            </div>
+                            {% if form.errors %}
+                                <div class="form-group row">
+                                    <div class="col-md-12 alert alert-danger">
+                                        {% for key, value in form.errors.items %}
+                                            {{value}}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="form-group row" style="width: 200%; height: 50%; margin: 5% 40%;">
+                                <div class="col-md-12">
+                                    <input href="{% url 'profile' %}" class="section-btn" type="submit" value="Login"/>                                    
+                                </div> 
+                                                                                          
+                            </div> 
+                            <div class="form-group row" style="width: 200%; height: 50%; margin: 5% 32%;">
+                                <a href="{% url 'password_reset' %}" class="section-btn">Forget your password?</a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" name="next" value="{{ next }}"/>
+    </form>
+
+{% endblock %}

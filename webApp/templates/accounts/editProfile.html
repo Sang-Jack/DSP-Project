@@ -1,0 +1,124 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3>Edit Profile</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">{{ form.username.label_tag }}</label>
+                            <div class="col-md-8" style="pointer-events: none;">
+                                <!-- <label style="font-weight:300">{{ user_form.username.value}}</label> -->
+                                {{ form.username }}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">{{ form.first_name.label_tag }}</label>
+                            <div class="col-md-8">
+                                {{ form.first_name }}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">{{ form.last_name.label_tag }}</label>
+                            <div class="col-md-8">
+                                {{ form.last_name }}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">{{ form.email.label_tag }}</label>
+                            <div class="col-md-8">
+                                <!-- <input style="width:100%" type="email" value="{{ user_form.email.value }}"> -->
+                                {{ form.email }}
+                            </div>
+                        </div> 
+                        
+                         {% comment %} <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">{{ form.gender.label_tag }}</label>
+                            <div class="col-md-8">
+                                {{ form.gender }}
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">{{ form.height.label_tag }}</label>
+                            <div class="col-md-8">
+                                {{ form.height }}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">{{ form.weight.label_tag }}</label>
+                            <div class="col-md-8">
+                                {{ form.weight }}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">{{ form.activitylevel.label_tag }}</label>
+                            <div class="col-md-8">
+                                {{ form.activitylevel }}
+                            </div>
+                        </div>  {% endcomment %}
+                    </div> 
+                    <div class="panel-footer">
+                        <div class="form-group row">
+                            <div class="col-md-12">                               
+                                <button class="section-btn" type="submit" value="Update">Update</button> 
+                                <br>
+                                <br>
+                                <a href="{% url 'password_reset' %}" class="section-btn">Change your password ?</a>                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br/>
+    </form>
+
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-1 bg-primary" style="width: 5%"><h4>DAY</h4></div>
+            <div class="col-md-3 bg-warning" style="width: 25%"><h4>Breakfast</h4></div>
+            <div class="col-md-3 bg-warning" style="width: 20%"><h4>Morning Snacks</h4></div>
+            <div class="col-md-3 bg-warning" style="width: 25%"><h4>Lunch</h4></div>
+            <div class="col-md-2 bg-warning" style="width: 25%"><h4>Dinner</h4></div>
+        </div>
+
+        {% comment %} {% for d1 in dish_list %}
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-1" style="text-align: center;width: 5%;">{{ d1.day }}</div>
+                <div class="col-md-3" style="width: 25%">
+                    <p>Dish: {{ d1.dish_breakfast.name }}</p>
+                    <p>Calories: {{ d1.dish_breakfast.calories }} cal</p>
+                    <p>Serving: {{ d1.dish_breakfast.description }}</p>
+                    <img src="/media/{{ d1.dish_breakfast.image }}" width="100%" height="100%"/>
+                </div>
+                <div class="col-md-3" style="width: 20%">
+                    <p>Dish: {{ d1.dish_snacks.name }}</p>
+                    <p>Calories: {{ d1.dish_snacks.calories }} cal</p>
+                    <p>Serving: {{ d1.dish_snacks.description }}</p>
+                    <img src="/media/{{ d1.dish_snacks.image }}" width="100%" height="100%"/>
+                </div>
+                <div class="col-md-3" style="width: 25%">
+                    <p>Dish: {{ d1.dish_lunch.name }}</p>
+                    <p>Calories: {{ d1.dish_lunch.calories }} cal</p>
+                    <p>Serving: {{ d1.dish_lunch.description }}</p>
+                    <img src="/media/{{ d1.dish_lunch.image }}" width="100%" height="100%"/>
+                </div>
+                <div class="col-md-3" style="width: 25%">
+                    <p>Dish: {{ d1.dish_dinner.name }}</p>
+                    <p>Calories: {{ d1.dish_dinner.calories }} cal</p>
+                    <p>Serving: {{ d1.dish_dinner.description }}</p>
+                    <img src="/media/{{ d1.dish_dinner.image }}" width="100%" height="100%"/>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div> {% endcomment %}
+{% endblock %}

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+    <title>Let's Stay Fit</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/magnific-popup.css' %}">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{% static 'app/css/templatemo-style.css' %}">
+
+</head>
+
+<body>
+
+<!-- PRE LOADER -->
+<section class="preloader">
+    <div class="spinner">
+
+        <span class="spinner-rotate"></span>
+
+    </div>
+</section>
+
+
+<!-- MENU -->
+<section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+            </button>
+
+            <!-- lOGO TEXT HERE -->
+            <a href="layout.html" class="navbar-brand">Let's Stay Fit</a>
+        </div>
+
+        <!-- MENU LINKS -->
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-nav-first">
+                <li><a href="../../layout.html#home" class="smoothScroll">Home</a></li>
+                <li><a href="../../layout.html#about" class="smoothScroll">About</a></li>
+                <li><a href="../../layout.html#cal" class="smoothScroll">BMI &amp; BMR</a></li>
+                
+                <!-- <li><a href="#contact" class="smoothScroll">Contact</a></li> -->
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <!-- CHECK USER LOGIN-->
+                {% if user.is_authenticated %}
+                    <span style="color: yellowgreen">Welcome, {{ user.username }} &nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'profile' %}" class="section-btn">Profile</a></span>
+                    <a href="{% url 'logout' %}" class="section-btn">Logout</a></span>
+
+                {% else %}
+                    <span style="color: yellowgreen">Welcome, Guest &nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'register' %}" class="section-btn">Sign Up</a>
+                    <a href="{% url 'login' %}" class="section-btn">Login</a>
+                    
+                {% endif %}
+                            
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- HOME -->
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+    <div class="row">
+
+        <div class="owl-carousel owl-theme">
+            <div class="item item-first">
+                <div class="caption">
+                    <div class="container">
+                        <div class="col-md-8 col-sm-12">
+                            <h3>Healthy &amp; Delicious</h3>
+                            <h1>Our mission is to provide an unforgettable experience</h1>
+                            <a href="../../layout.html#about" class="section-btn btn btn-default smoothScroll">About Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item item-second">
+                <div class="caption">
+                    <div class="container">
+                        <div class="col-md-8 col-sm-12">
+                            <h3>Your Perfect Balance</h3>
+                            <h1>The best way to have a view of your current health</h1>
+                            <a href="../../layout.html#cal"
+                               class="section-btn btn btn-default smoothScroll">Have a view of your current health</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item item-third">
+                <div class="caption">
+                    <div class="container">
+                        <div class="col-md-8 col-sm-12">
+                            <h1>Make a eating suggestion for you to improve health</h1>                                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer id="footer" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3 col-sm-8">
+                <div class="footer-info">
+                    <div class="section-title">
+                        <h2 class="wow fadeInUp" data-wow-delay="0.2s">Find us</h2>
+                    </div>
+                    <address class="wow fadeInUp" data-wow-delay="0.4s">
+                        <p>SANG NGO Fitness.</p>
+                    </address>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-8">
+                <div class="footer-info">
+                    <div class="section-title">
+                        <h2 class="wow fadeInUp" data-wow-delay="0.2s">Order</h2>
+                    </div>
+                    <address class="wow fadeInUp" data-wow-delay="0.4s">
+                        <p>Phone: xxx-xxx-xxxx</p>
+                        <p>Email: <a href="mailto:minhquan@gmail.com">sang3.ngo@live.uwe.ac.uk</a></p>
+                    </address>
+                </div>
+            </div>
+
+
+            <div class="col-md-4 col-sm-8">
+                <div class="footer-info footer-open-hour">
+                    <div class="section-title">
+                        <h2 class="wow fadeInUp" data-wow-delay="0.2s">Open Hours</h2>
+                    </div>
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div>
+                            <strong>Monday to Friday</strong>
+                            <p>7:00 AM - 9:00 PM</p>
+                        </div>
+                        <div>
+                            <strong>Saturday - Sunday</strong>
+                            <p>11:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-4">
+                <ul class="wow fadeInUp social-icon" data-wow-delay="0.4s">
+                    <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                    <li><a href="#" class="fa fa-google"></a></li>
+                </ul>
+
+                <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s">
+                    <p><br>Copyright &copy; 2022 <br>Examination
+
+                        <br><br>Design by: Sang Ngo</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+
+
+<!-- SCRIPTS -->
+<script src="{% static 'app/js/jquery.js' %}"></script>
+<script src="{% static 'app/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'app/js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'app/js/wow.min.js' %}"></script>
+<script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'app/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'app/js/smoothscroll.js' %}"></script>
+<script src="{% static 'app/js/custom.js' %}"></script>
+
+
+</body>
+
+</html>

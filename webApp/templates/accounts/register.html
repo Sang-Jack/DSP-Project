@@ -1,0 +1,99 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        {% comment %} {{ form.as_p }}  {% endcomment %}
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3>Member Registration Form</h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- Login Information -->
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">{{ form.username.label_tag }}</label>
+                                <div class="col-md-8">
+                                    {{ form.username }}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">{{ form.password1.label_tag }}</label>
+                                <div class="col-md-8">
+                                    {{ form.password1 }}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">{{ form.password2.label_tag }}</label>
+                                <div class="col-md-8">
+                                    {{ form.password2 }}
+                                </div>
+                            </div>
+                            <!-- Personal Information -->
+                            <div class="form-group row">
+                                <h4 class="col-md-12" style="height: 40px; padding-top: 10px; background-color: #ddd">
+                                    Personal Information</h4>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">{{ form.first_name.label_tag }}</label>
+                                <div class="col-md-8">
+                                    {{ form.first_name }}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">{{ form.last_name.label_tag }}</label>
+                                <div class="col-md-8">
+                                    {{ form.last_name }}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">{{ form.email.label_tag }}</label>
+                                <div class="col-md-8">
+                                    {{ form.email }}
+                                </div>
+                            </div>
+                            <div class="container">
+                                {% if form.errors %}
+                                <div class="form-group row">
+                                    <div class="col-md-12 alert alert-danger">
+                                        {% for key, value in form.errors.items %}
+                                            {{value}}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            </div>
+                            {% comment %} <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Gender:</label>
+                                <div class="col-md-8">
+                                    <select id="dropdown_sex" width="165" name="sex">
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                    </select>                            
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Height (cm):</label>
+                                <div class="col-md-8">
+                                    <input id="id_height" name="height" type="number">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Weight (kg):</label>
+                                <div class="col-md-8">
+                                    <input id="id_weight" name="weight" type="number">
+                                </div>
+                            </div>                       {% endcomment %}
+                            <div class="form-group row">
+                                <input style="height: 35px" class="col-md-12 bg-primary" type="submit" value="Submit"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+{% endblock %}
